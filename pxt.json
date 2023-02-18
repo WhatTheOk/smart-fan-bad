@@ -6,7 +6,8 @@
         "radio": "*",
         "microphone": "*",
         "MakerBit-IR-Receiver": "github:1010technologies/pxt-makerbit-ir-receiver#v1.5.14",
-        "pxt-DHT11_DHT22": "github:alankrantas/pxt-dht11_dht22#v0.0.3"
+        "pxt-DHT11_DHT22": "github:alankrantas/pxt-dht11_dht22#v0.0.3",
+        "DS1302": "github:makecode-extensions/ds1302#v1.1.0"
     },
     "files": [
         "main.blocks",
