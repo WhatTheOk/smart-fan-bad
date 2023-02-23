@@ -35,6 +35,21 @@ function adjustMode() {
     
 }
 
+function adjustSpeed(speed: number) {
+    pins.analogWritePin(AnalogPin.P4, 348 + speed * 75)
+    pins.digitalWritePin(DigitalPin.P8, 0)
+    pins.digitalWritePin(DigitalPin.P9, 0)
+    pins.digitalWritePin(DigitalPin.P10, 0)
+    if (speed > 6) {
+        pins.digitalWritePin(DigitalPin.P8, 1)
+    } else if (speed > 3) {
+        pins.digitalWritePin(DigitalPin.P9, 1)
+    } else if (speed > 0) {
+        pins.digitalWritePin(DigitalPin.P10, 1)
+    }
+    
+}
+
 function timeFan() {
     
     adjustSpeed(fanData[1])
@@ -50,21 +65,6 @@ function timeFan() {
         
         basic.pause(1000)
     }
-}
-
-function adjustSpeed(speed: number) {
-    pins.analogWritePin(AnalogPin.P4, 348 + speed * 75)
-    pins.digitalWritePin(DigitalPin.P8, 0)
-    pins.digitalWritePin(DigitalPin.P9, 0)
-    pins.digitalWritePin(DigitalPin.P10, 0)
-    if (speed > 6) {
-        pins.digitalWritePin(DigitalPin.P8, 1)
-    } else if (speed > 3) {
-        pins.digitalWritePin(DigitalPin.P9, 1)
-    } else if (speed > 0) {
-        pins.digitalWritePin(DigitalPin.P10, 1)
-    }
-    
 }
 
 let minute = 0
