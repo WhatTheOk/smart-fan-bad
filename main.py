@@ -33,7 +33,7 @@ def timeFan():
             fanData[0] = 0
         basic.pause(1000)
 def adjustSpeed(speed: number):
-    pins.analog_write_pin(AnalogPin.P4, speed * 1023 / 9)
+    pins.analog_write_pin(AnalogPin.P4, 348 + speed * 75)
     pins.digital_write_pin(DigitalPin.P8, 0)
     pins.digital_write_pin(DigitalPin.P9, 0)
     pins.digital_write_pin(DigitalPin.P10, 0)
