@@ -13,7 +13,7 @@ def tempFan():
         basic.pause(2000)
 
 def on_button_pressed_a():
-    fanData[1] = (int(fanData[1]/3) * 3 + 3) % 12
+    fanData[1] = (int(fanData[1] / 3) * 3 + 3) % 12
 input.on_button_pressed(Button.A, on_button_pressed_a)
 
 def adjustMode():
@@ -52,7 +52,6 @@ def adjustSpeed(speed: number):
     pins.analog_write_pin(AnalogPin.P4, 348 + speed * 75)
     if speed == 0:
         pins.analog_write_pin(AnalogPin.P4, 0)
-
 minute = 0
 hour = 0
 temper = 0
