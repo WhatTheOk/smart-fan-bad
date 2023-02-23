@@ -1,21 +1,3 @@
-function tempFan() {
-    
-    minTemp = fanData[3]
-    maxTemp = fanData[4]
-    while (fanData[0] == 1) {
-        temper = randint(21, 29)
-        if (temper <= minTemp) {
-            adjustSpeed(0)
-        } else if (temper >= maxTemp) {
-            adjustSpeed(9)
-        } else {
-            adjustSpeed((temper - minTemp) / (maxTemp - minTemp) * 9)
-        }
-        
-        basic.pause(2000)
-    }
-}
-
 function adjustMode() {
     if (fanData[0] == 0) {
         adjustSpeed(0)
@@ -64,6 +46,24 @@ function timeFan() {
         }
         
         basic.pause(1000)
+    }
+}
+
+function tempFan() {
+    
+    minTemp = fanData[3]
+    maxTemp = fanData[4]
+    while (fanData[0] == 1) {
+        temper = randint(21, 29)
+        if (temper <= minTemp) {
+            adjustSpeed(0)
+        } else if (temper >= maxTemp) {
+            adjustSpeed(9)
+        } else {
+            adjustSpeed((temper - minTemp) / (maxTemp - minTemp) * 9)
+        }
+        
+        basic.pause(2000)
     }
 }
 

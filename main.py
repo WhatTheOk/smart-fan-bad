@@ -1,16 +1,3 @@
-def tempFan():
-    global minTemp, maxTemp, temper
-    minTemp = fanData[3]
-    maxTemp = fanData[4]
-    while fanData[0] == 1:
-        temper = randint(21, 29)
-        if temper <= minTemp:
-            adjustSpeed(0)
-        elif temper >= maxTemp:
-            adjustSpeed(9)
-        else:
-            adjustSpeed((temper - minTemp) / (maxTemp - minTemp) * 9)
-        basic.pause(2000)
 def adjustMode():
     if fanData[0] == 0:
         adjustSpeed(0)
@@ -43,6 +30,19 @@ def timeFan():
         if ds.get_hour() == hour and ds.get_minute() == minute:
             fanData[0] = 0
         basic.pause(1000)
+def tempFan():
+    global minTemp, maxTemp, temper
+    minTemp = fanData[3]
+    maxTemp = fanData[4]
+    while fanData[0] == 1:
+        temper = randint(21, 29)
+        if temper <= minTemp:
+            adjustSpeed(0)
+        elif temper >= maxTemp:
+            adjustSpeed(9)
+        else:
+            adjustSpeed((temper - minTemp) / (maxTemp - minTemp) * 9)
+        basic.pause(2000)
 minute = 0
 hour = 0
 temper = 0
