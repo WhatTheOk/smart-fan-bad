@@ -7,6 +7,7 @@ def adjustMode():
         timeFan()
     if fanData[0] == 3:
         tempFan()
+
 def adjustSpeed(speed: number):
     pins.analog_write_pin(AnalogPin.P4, 348 + speed * 75)
     pins.digital_write_pin(DigitalPin.P8, 0)
@@ -18,6 +19,7 @@ def adjustSpeed(speed: number):
         pins.digital_write_pin(DigitalPin.P9, 1)
     elif speed > 0:
         pins.digital_write_pin(DigitalPin.P10, 1)
+
 def timeFan():
     global hour, minute
     adjustSpeed(fanData[1])
@@ -30,6 +32,7 @@ def timeFan():
         if ds.get_hour() == hour and ds.get_minute() == minute:
             fanData[0] = 0
         basic.pause(1000)
+
 def tempFan():
     global minTemp, maxTemp, temper
     minTemp = fanData[3]
@@ -43,6 +46,7 @@ def tempFan():
         else:
             adjustSpeed((temper - minTemp) / (maxTemp - minTemp) * 9)
         basic.pause(2000)
+
 minute = 0
 hour = 0
 temper = 0
